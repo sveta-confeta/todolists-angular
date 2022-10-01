@@ -1,0 +1,13 @@
+.todos-header{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+.todos-input{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
