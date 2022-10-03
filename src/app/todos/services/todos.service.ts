@@ -27,17 +27,35 @@ export class TodosService {
           const newTodo = res.data.item
           return [newTodo, ...stateTodos]
         })
-      ).subscribe( todos => {
+      ).subscribe(todos => {
       this.todos$.next(todos)
     })
 
   }
-  removeTodo(todoID:string) {
+
+  removeTodo(todoID: string) {
     this.http.delete<CommonResponse>(`${environment.baseUrl}/todo-lists/${todoID}`)
       .pipe(map(res => {
         const stateTodos = this.todos$.getValue()
         return stateTodos.filter(tl => tl.id !== todoID)
       }))
+      .subscribe(todos => {
+        this.todos$.next(todos)
+      })
+  }
+
+  updateTodoTitle(data:{ todoId: string, title: string }) {
+    this.http.put<CommonResponse>(`${environment.baseUrl}/todo-lists/${data.todoId}`, {title: data.title})
+      .pipe(map(res => {
+          const stateTodos = this.todos$.getValue()//получаем тодолисты какие есть
+          return stateTodos.map( (tl) => {
+           if(tl.id === data.todoId){
+             return {...tl,title:data.title}
+           } else{
+             return  tl
+           }
+          }
+      )}))
       .subscribe(todos => {
         this.todos$.next(todos)
       })

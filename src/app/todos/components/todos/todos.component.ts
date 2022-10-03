@@ -19,13 +19,18 @@ export class TodosComponent implements OnInit {
     this.todos$ = this.todosService.todos$
     this.todosService.getTodos()
   }
-  addTodoHandler(){
- this.todosService.addTodo(this.todoTitle);
- this.todoTitle=''
+
+  addTodoHandler() {
+    this.todosService.addTodo(this.todoTitle);
+    this.todoTitle = ''
   }
 
-  removeTodo(todoID:string){
-this.todosService.removeTodo(todoID)
+  removeTodo(todoID: string) {
+    this.todosService.removeTodo(todoID)
+  }
+
+  editTodo(data: { todoId: string, title: string }) {
+    this.todosService.updateTodoTitle(data)
   }
 
 }
