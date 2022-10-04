@@ -1,19 +1,18 @@
-import {Component, OnInit} from '@angular/core';
-import {TodosService} from "../../services/todos.service";
-import {Observable} from "rxjs";
-import {Todo} from "../../models/todos.models";
+import { Component, OnInit } from '@angular/core'
+import { TodosService } from '../../services/todos.service'
+import { Observable } from 'rxjs'
+import { Todo } from '../../models/todos.models'
 
 @Component({
   selector: 'tl-todos',
   templateUrl: './todos.component.html',
-  styleUrls: ['./todos.component.css']
+  styleUrls: ['./todos.component.css'],
 })
 export class TodosComponent implements OnInit {
   todoTitle = ''
   todos$?: Observable<Todo[]>
 
-  constructor(private todosService: TodosService) {
-  }
+  constructor(private todosService: TodosService) {}
 
   ngOnInit(): void {
     this.todos$ = this.todosService.todos$
@@ -21,7 +20,7 @@ export class TodosComponent implements OnInit {
   }
 
   addTodoHandler() {
-    this.todosService.addTodo(this.todoTitle);
+    this.todosService.addTodo(this.todoTitle)
     this.todoTitle = ''
   }
 
@@ -29,8 +28,7 @@ export class TodosComponent implements OnInit {
     this.todosService.removeTodo(todoID)
   }
 
-  editTodo(data: { todoId: string, title: string }) {
+  editTodo(data: { todoId: string; title: string }) {
     this.todosService.updateTodoTitle(data)
   }
-
 }
