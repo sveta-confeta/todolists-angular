@@ -9,6 +9,7 @@ import { Todo } from '../../../models/todos.models'
 export class TodoComponent {
   isTitleEdit = false
   newTitle = ''
+
   @Input() todo!: Todo //сдесь сидит стейт одного гудулиста
   @Output() removeTodoEvent = new EventEmitter<string>()
   @Output() editTodoEvent = new EventEmitter<{ todoId: string; title: string }>()

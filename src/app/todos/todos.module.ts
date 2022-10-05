@@ -7,10 +7,11 @@ import { FormsModule } from '@angular/forms'
 import { TodoComponent } from './components/todos/todo/todo.component'
 import { TasksComponent } from './components/todos/todo/tasks/tasks.component'
 import { TasksService } from './services/tasks.service'
-import { TodosService } from './services/todos.service'
+import { TodosService } from './services/todos.service';
+import { TaskComponent } from './components/todos/todo/tasks/task/task.component'
 
 @NgModule({
-  declarations: [TodosComponent, TodoComponent, TasksComponent],
+  declarations: [TodosComponent, TodoComponent, TasksComponent, TaskComponent],
   imports: [CommonModule, TodosRoutingModule, FormsModule],
   providers: [TasksService, TodosService],
 })
