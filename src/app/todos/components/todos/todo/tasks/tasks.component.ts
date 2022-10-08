@@ -15,6 +15,9 @@ export class TasksComponent implements OnInit {
 
   ngOnInit(): void {
     this.tasksServices.getTasks(this.todoId)
-    this.tasks$ = this.tasksServices.getTasks(this.todoId)
+    // this.tasks$ = this.tasksServices.getTasks(this.todoId)
+  }
+  removeTask(data: { todoId: string; taskId: string }) {
+    this.tasksServices.removeTask(data)
   }
 }

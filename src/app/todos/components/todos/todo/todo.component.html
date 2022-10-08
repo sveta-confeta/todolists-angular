@@ -8,7 +8,7 @@
     />
 
     <ng-template #content>
-      <p (dblclick)="toggleEditMode()">{{ todo.title }}</p>
+      <b (dblclick)="toggleEditMode()">{{ todo.title }}</b>
     </ng-template>
 
     <button (click)="removeTodoHandler()">-</button>
