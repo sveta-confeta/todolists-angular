@@ -17,14 +17,35 @@ export class TasksService {
     return this.http
       .get<GetTasksResponse>(`${environment.baseUrl}/todo-lists/${todoId}/tasks`)
       .pipe(map(t => t.items))
-      .subscribe((tasks: Task[]) => this.tasks$.next(tasks))
+      .subscribe((tasks: Task[]) => {
+        const stateTasks = this.tasks$.getValue() //получаем доступ к нашим таскам-пока это пустой обьект
+        //потом нужно обратиться к этому обьекту и сказать, что в качестве ключика у тебя будет stateTasks[todoId]
+        //а в качестве значения таски которые пришли:
+        stateTasks[todoId] = tasks
+        //после того как мы запишем в него значения ,мы обновляем наш stateTasks:
+        this.tasks$.next(stateTasks)
+      })
   }
 
-  // addTasks(data: { todoId: string; title: string }) {
-  //   this.http
-  //     .post(`${environment.baseUrl}/todo-lists/${data.todoId}/tasks`, { title: data.title })
-  //     .subscribe((tasks:DomainTask) => this.tasks$.next(tasks))
-  // }
+  addTasks(data: { todoId: string; title: string }) {
+    this.http
+      .post<CommonResponse<{ item: Task }>>(
+        `${environment.baseUrl}/todo-lists/${data.todoId}/tasks`,
+        { title: data.title }
+      )
+      .pipe(
+        map(res => {
+          const stateTasks = this.tasks$.getValue() //получаем стейт тасок
+          //нужно получить новую таску:
+          const newTask = res.data.item
+          // получить новую таски:
+          const newTasks = [newTask, ...stateTasks[data.todoId]]
+          stateTasks[data.todoId] = newTasks
+          return stateTasks
+        })
+      )
+      .subscribe((tasks: DomainTask) => this.tasks$.next(tasks))
+  }
   removeTask(data: { todoId: string; taskId: string }) {
     this.http
       .delete<CommonResponse>(
@@ -36,7 +57,7 @@ export class TasksService {
           const tasksForTodo = stateTasks[data.todoId]
           const filteredTask = tasksForTodo.filter(t => t.id !== data.taskId)
           stateTasks[data.todoId] = filteredTask
-          return filteredTask
+          return stateTasks
         })
       )
       .subscribe((tasks: DomainTask) => this.tasks$.next(tasks))
