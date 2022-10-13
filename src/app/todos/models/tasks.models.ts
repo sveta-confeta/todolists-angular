@@ -3,19 +3,23 @@ export interface GetTasksResponse {
   totalCount: number
   error: string
 }
-export interface Task {
+export interface Task extends UpdateTaskModel {
+  //обьединяем два интерфейса чтоб не дублировать код
   id: string
   todoListId: string
-  title: string
   addedDate: string
   order: number
+}
+export interface DomainTask {
+  [key: string]: Task[]
+}
+export interface UpdateTaskModel {
+  //а эту часть интерфейса можно использовать отдельно
+  title: string
   description: string
   completed: boolean
   status: number
   priority: number
   startDate: string
   deadline: string
-}
-export interface DomainTask {
-  [key: string]: Task[]
 }

@@ -7,10 +7,18 @@ import { SharedModule } from './shared/shared.module'
 import { HttpClientModule } from '@angular/common/http'
 import { TasksService } from './todos/services/tasks.service'
 import { TodosService } from './todos/services/todos.service'
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, CoreModule, SharedModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CoreModule,
+    SharedModule,
+    HttpClientModule,
+    FormsModule,
+  ],
   providers: [TasksService, TodosService],
   bootstrap: [AppComponent],
 })

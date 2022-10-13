@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { environment } from '../../../environments/environment'
 import { BehaviorSubject, map } from 'rxjs'
-import { DomainTask, GetTasksResponse, Task } from '../models/tasks.models'
+import { DomainTask, GetTasksResponse, Task, UpdateTaskModel } from '../models/tasks.models'
 import { HttpClient } from '@angular/common/http'
 import { CommonResponse } from '../../core/models/core.models'
 
@@ -35,6 +35,7 @@ export class TasksService {
       )
       .pipe(
         map(res => {
+          debugger
           const stateTasks = this.tasks$.getValue() //получаем стейт тасок
           //нужно получить новую таску:
           const newTask = res.data.item
@@ -57,6 +58,30 @@ export class TasksService {
           const tasksForTodo = stateTasks[data.todoId]
           const filteredTask = tasksForTodo.filter(t => t.id !== data.taskId)
           stateTasks[data.todoId] = filteredTask
+          return stateTasks
+        })
+      )
+      .subscribe((tasks: DomainTask) => this.tasks$.next(tasks))
+  }
+
+  updateTask(data: { todoId: string; taskId: string; model: UpdateTaskModel }) {
+    this.http
+      .put<CommonResponse>(
+        `${environment.baseUrl}/todo-lists/${data.todoId}/tasks/${data.taskId}`,
+        data.model
+      )
+      .pipe(
+        map(res => {
+          const stateTasks = this.tasks$.getValue()
+          const tasksForTodo = stateTasks[data.todoId]
+          const newTasks = tasksForTodo.map(t => {
+            if (t.id === data.taskId) {
+              return { ...t, ...data.model }
+            } else {
+              return t
+            }
+          })
+          stateTasks[data.todoId] = newTasks
           return stateTasks
         })
       )
