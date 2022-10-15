@@ -11,3 +11,11 @@
   justify-content: center;
   margin-bottom: 20px;
 }
+
+
+.todos-box{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}

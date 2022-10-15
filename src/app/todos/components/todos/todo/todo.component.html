@@ -14,4 +14,9 @@
     <button (click)="removeTodoHandler()">-</button>
   </div>
   <tl-tasks [todoId]="todo.id"></tl-tasks>
+  <tl-todo-filters
+    (changeFilterEvent)="changeFilter($event)"
+    [filter]="todo.filter"
+  ></tl-todo-filters>
+  <tl-todo-footer [createDate]="todo.addedDate"></tl-todo-footer>
 </div>
