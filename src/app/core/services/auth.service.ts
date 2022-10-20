@@ -4,12 +4,19 @@ import { environment } from '../../../environments/environment'
 import { Router } from '@angular/router'
 import { CommonResponse } from '../models/core.models'
 
+interface loginData {
+  email: string
+  password: string
+  rememberMe: boolean
+}
+
 @Injectable()
 export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
 
   //логинизация хочет емаил, пасворд и ремембер ми:
-  login(data: any) {
+  login(data: Partial<loginData>) {
+    //полное совпадение
     this.http
       .post<CommonResponse<{ userId: number }>>(`${environment.baseUrl}/auth/login`, data)
       .subscribe(res => {
