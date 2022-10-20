@@ -9,10 +9,16 @@ interface loginData {
   password: string
   rememberMe: boolean
 }
+interface MeResponse {
+  email: string
+  id: string
+  login: string
+}
 
 @Injectable()
 export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
+  isAuth = true
 
   //логинизация хочет емаил, пасворд и ремембер ми:
   login(data: Partial<loginData>) {
@@ -36,6 +42,10 @@ export class AuthService {
   }
   //me:я это или не я
   me() {
-    this.http.get(`${environment.baseUrl}/auth/me`).subscribe(res => {})
+    this.http.get<CommonResponse<MeResponse>>(`${environment.baseUrl}/auth/me`).subscribe(res => {
+      if (res.resultCode === 0) {
+        this.isAuth = true
+      }
+    })
   }
 }
