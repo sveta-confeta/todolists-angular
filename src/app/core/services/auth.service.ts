@@ -18,7 +18,12 @@ interface MeResponse {
 @Injectable()
 export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
-  isAuth = true
+  isAuth = false
+  resolveAuthRequest: Function = () => {}
+
+  authRequest = new Promise(resolve => {
+    this.resolveAuthRequest = resolve
+  })
 
   //логинизация хочет емаил, пасворд и ремембер ми:
   login(data: Partial<loginData>) {
@@ -46,6 +51,7 @@ export class AuthService {
       if (res.resultCode === 0) {
         this.isAuth = true
       }
+      this.resolveAuthRequest()
     })
   }
 }
