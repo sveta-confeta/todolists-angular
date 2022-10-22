@@ -1,0 +1,26 @@
+.notification{
+  position: fixed;
+  top:125px;
+  left:50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+.notification-item{
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 420px;
+  margin-top: 20px;
+  padding: 11px 13px;
+  color: #ffffff;
+  border-radius: 2px;
+  background-color: darkslategray;
+}
+.notification-item--success{
+  background-color: forestgreen;
+}
+.notification-item--error{
+  background-color: tomato;
+}
