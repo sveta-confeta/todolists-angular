@@ -1,10 +1,10 @@
 <div class="box">
-  <h1>Login page</h1>
+  <h1>Login</h1>
 
   <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" class="form">
+    <h2 class="title">LOGIN</h2>
     <!-- Email -->
-    <label>
-      Введите email
+    <div class="input-container">
       <input
         type="text"
         formControlName="email"
@@ -14,7 +14,15 @@
           inputSuccess: email!.valid
         }"
       />
-    </label>
+      <label for="#{label}">Username</label>-->
+      <div class="bar"></div>
+      -->
+    </div>
+    <!--      <div class="input-container">-->
+    <!--        <input type="#{type}" id="#{label}" required="required"/>-->
+    <!--        <label for="#{label}">Username</label>-->
+    <!--        <div class="bar"></div>-->
+    <!--      </div>-->
     <div *ngIf="email!.invalid && (email!.dirty || email!.touched)" class="error">
       <div *ngIf="email!.errors?.['required']">Email is required</div>
       <!--      <div *ngIf="email!.errors?.['pattern']">Email incorrect pattern</div>-->
@@ -40,7 +48,6 @@
 
     <!-- Remember me -->
     <label> <input type="checkbox" formControlName="rememberMe" /> remember me </label>
-
     <button type="submit" [disabled]="loginForm.invalid">sign in</button>
   </form>
 </div>
