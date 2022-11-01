@@ -1,36 +1,27 @@
 <div class="box">
-  <h1>Login</h1>
-
   <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" class="form">
     <h2 class="title">LOGIN</h2>
     <!-- Email -->
     <div class="input-container">
       <input
-        type="text"
+        type="email"
         formControlName="email"
         required
+        id="#{label}"
         [ngClass]="{
           inputError: email!.invalid && (email!.dirty || email!.touched),
           inputSuccess: email!.valid
         }"
       />
-      <label for="#{label}">Username</label>-->
+      <label for="#{label}">Email</label>
       <div class="bar"></div>
-      -->
-    </div>
-    <!--      <div class="input-container">-->
-    <!--        <input type="#{type}" id="#{label}" required="required"/>-->
-    <!--        <label for="#{label}">Username</label>-->
-    <!--        <div class="bar"></div>-->
-    <!--      </div>-->
-    <div *ngIf="email!.invalid && (email!.dirty || email!.touched)" class="error">
-      <div *ngIf="email!.errors?.['required']">Email is required</div>
-      <!--      <div *ngIf="email!.errors?.['pattern']">Email incorrect pattern</div>-->
+      <div *ngIf="email!.invalid && (email!.dirty || email!.touched)" class="error">
+        <div class="errorText" *ngIf="email!.errors?.['required']">Email is required</div>
+        <div class="errorText" *ngIf="email!.errors?.['pattern']">Email incorrect pattern</div>
+      </div>
     </div>
 
-    <!-- Password -->
-    <label>
-      Введите password
+    <div class="input-container">
       <input
         type="password"
         formControlName="password"
@@ -40,14 +31,23 @@
           inputSuccess: password!.valid
         }"
       />
-    </label>
-    <div *ngIf="password!.invalid && (password!.dirty || password!.touched)" class="error">
-      <div *ngIf="password!.errors?.['required']">Password is required.</div>
-      <div *ngIf="password!.errors?.['minlength']">Name must be at least 3 characters long.</div>
+      <label for="#{label}">Password</label>
+      <div class="bar"></div>
+      <div *ngIf="password!.invalid && (password!.dirty || password!.touched)" class="error">
+        <div class="errorText" *ngIf="password!.errors?.['required']">Password is required.</div>
+        <div class="errorText" *ngIf="password!.errors?.['minlength']">
+          Name must be at least 3 characters long.
+        </div>
+      </div>
     </div>
 
     <!-- Remember me -->
-    <label> <input type="checkbox" formControlName="rememberMe" /> remember me </label>
-    <button type="submit" [disabled]="loginForm.invalid">sign in</button>
+    <div class="input-container">
+      <input type="checkbox" class="checkbox" formControlName="rememberMe" id="checkbox-id" />
+      <label class="checked" for="checkbox-id">Remember me</label>
+    </div>
+    <div class="button-container">
+      <button type="submit" [disabled]="loginForm.invalid"><span>sign in</span></button>
+    </div>
   </form>
 </div>
