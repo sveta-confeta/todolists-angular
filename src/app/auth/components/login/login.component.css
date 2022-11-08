@@ -1,11 +1,23 @@
 .box {
   margin: 0 auto;
   padding: 30px;
-  display: flex;
-  justify-content: center;
+  position: absolute;
+  left:50%;
+  transform: translate(-50%,10%);
 
 
 
+}
+.box:before{
+  content: '';
+  position: absolute;
+  z-index: 3;
+  top: 69px;
+  right: -17px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color:#9a6aff;
 }
 .form {
   display: flex;
@@ -14,7 +26,7 @@
   position: relative;
   background: #ffffff;
   border-radius: 5px;
-  padding: 60px 0 20px 0;
+  padding: 29px 0 20px 0;
   box-sizing: border-box;
   transition: .3s ease;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -26,10 +38,10 @@
   position: relative;
   z-index: 1;
   border-left: 5px solid #9a6aff;
-  margin: 0 0 20px;
-  padding: 10px 0 10px 50px;
+  text-align: left;
+  padding-left: 50px;
   color: #9a6aff;
-  font-size: 37px;
+  font-size: 44px;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -44,7 +56,7 @@ input {
   outline: none;
   z-index: 1;
   position: relative;
-  background: none;
+  background: transparent ;
   width: 100%;
   height: 60px;
   border: 0;
@@ -52,6 +64,10 @@ input {
   font-size: 24px;
   font-weight: 400;
 }
+
+
+
+
 
 /*checkbox*/
 
