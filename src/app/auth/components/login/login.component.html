@@ -6,15 +6,13 @@
       <input
         type="email"
         formControlName="email"
+        placeholder="email"
         required
-        id="#{label}"
         [ngClass]="{
           inputError: email!.invalid && (email!.dirty || email!.touched),
           inputSuccess: email!.valid
         }"
       />
-      <label for="#{label}">Email</label>
-      <div class="bar"></div>
       <div *ngIf="email!.invalid && (email!.dirty || email!.touched)" class="error">
         <div class="errorText" *ngIf="email!.errors?.['required']">Email is required</div>
         <div class="errorText" *ngIf="email!.errors?.['pattern']">Email incorrect pattern</div>
@@ -24,6 +22,7 @@
     <div class="input-container">
       <input
         type="password"
+        placeholder="password"
         formControlName="password"
         required
         [ngClass]="{
@@ -31,8 +30,6 @@
           inputSuccess: password!.valid
         }"
       />
-      <label for="#{label}">Password</label>
-      <div class="bar"></div>
       <div *ngIf="password!.invalid && (password!.dirty || password!.touched)" class="error">
         <div class="errorText" *ngIf="password!.errors?.['required']">Password is required.</div>
         <div class="errorText" *ngIf="password!.errors?.['minlength']">
@@ -47,7 +44,19 @@
       <label class="checked" for="checkbox-id">Remember me</label>
     </div>
     <div class="button-container">
-      <button type="submit" [disabled]="loginForm.invalid"><span>sign in</span></button>
+      <button type="submit" [disabled]="loginForm.invalid">sign in</button>
     </div>
+    <ul class="bg-bubbles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
   </form>
 </div>
