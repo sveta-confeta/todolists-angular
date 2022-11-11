@@ -1,62 +1,66 @@
 <div class="box">
-  <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" class="form">
+  <div class="container">
     <h2 class="title">LOGIN</h2>
-    <!-- Email -->
-    <div class="input-container">
-      <input
-        type="email"
-        formControlName="email"
-        placeholder="email"
-        required
-        [ngClass]="{
-          inputError: email!.invalid && (email!.dirty || email!.touched),
-          inputSuccess: email!.valid
-        }"
-      />
-      <div *ngIf="email!.invalid && (email!.dirty || email!.touched)" class="error">
-        <div class="errorText" *ngIf="email!.errors?.['required']">Email is required</div>
-        <div class="errorText" *ngIf="email!.errors?.['pattern']">Email incorrect pattern</div>
-      </div>
-    </div>
-
-    <div class="input-container">
-      <input
-        type="password"
-        placeholder="password"
-        formControlName="password"
-        required
-        [ngClass]="{
-          inputError: password!.invalid && (password!.dirty || password!.touched),
-          inputSuccess: password!.valid
-        }"
-      />
-      <div *ngIf="password!.invalid && (password!.dirty || password!.touched)" class="error">
-        <div class="errorText" *ngIf="password!.errors?.['required']">Password is required.</div>
-        <div class="errorText" *ngIf="password!.errors?.['minlength']">
-          Name must be at least 3 characters long.
+    <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" class="form">
+      <!-- Email -->
+      <div class="input-container">
+        <input
+          class="input"
+          type="email"
+          formControlName="email"
+          placeholder="email"
+          required
+          [ngClass]="{
+            inputError: email!.invalid && (email!.dirty || email!.touched),
+            inputSuccess: email!.valid
+          }"
+        />
+        <div *ngIf="email!.invalid && (email!.dirty || email!.touched)" class="error">
+          <div class="errorText" *ngIf="email!.errors?.['required']">Email is required</div>
+          <div class="errorText" *ngIf="email!.errors?.['pattern']">Email incorrect pattern</div>
         </div>
       </div>
-    </div>
 
-    <!-- Remember me -->
-    <div class="input-container">
-      <input type="checkbox" class="checkbox" formControlName="rememberMe" id="checkbox-id" />
-      <label class="checked" for="checkbox-id">Remember me</label>
-    </div>
-    <div class="button-container">
-      <button type="submit" [disabled]="loginForm.invalid">sign in</button>
-    </div>
-    <ul class="bg-bubbles">
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
-  </form>
+      <div class="input-container">
+        <input
+          class="input"
+          type="password"
+          placeholder="password"
+          formControlName="password"
+          required
+          [ngClass]="{
+            inputError: password!.invalid && (password!.dirty || password!.touched),
+            inputSuccess: password!.valid
+          }"
+        />
+        <div *ngIf="password!.invalid && (password!.dirty || password!.touched)" class="error">
+          <div class="errorText" *ngIf="password!.errors?.['required']">Password is required.</div>
+          <div class="errorText" *ngIf="password!.errors?.['minlength']">
+            Name must be at least 3 characters long.
+          </div>
+        </div>
+      </div>
+
+      <!-- Remember me -->
+      <div class="checkbox-container">
+        <input type="checkbox" class="checkbox" formControlName="rememberMe" id="checkbox-id" />
+        <label class="checked" for="checkbox-id">remember me</label>
+      </div>
+      <div class="button-container">
+        <button type="submit" [disabled]="loginForm.invalid">sign in</button>
+      </div>
+    </form>
+  </div>
+  <ul class="bg-bubbles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
 </div>
