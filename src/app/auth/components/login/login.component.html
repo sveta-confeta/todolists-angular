@@ -1,4 +1,9 @@
 <div class="box">
+  <p>
+    пароль для проверки :<br />
+    _svet_@tut.by<br />
+    101080
+  </p>
   <div class="container">
     <h2 class="title">LOGIN</h2>
     <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" class="form">
@@ -47,20 +52,24 @@
         <label class="checked" for="checkbox-id">remember me</label>
       </div>
       <div class="button-container">
-        <button type="submit" [disabled]="loginForm.invalid">sign in</button>
+        <button type="submit">
+          <!--                [disabled]="loginForm.invalid" была проблема что кнопка думала что код
+          инвалидный и дизаблила кнопку-->
+          sign in
+        </button>
       </div>
     </form>
+    <ul class="bg-bubbles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
   </div>
-  <ul class="bg-bubbles">
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
 </div>

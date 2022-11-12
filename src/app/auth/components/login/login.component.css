@@ -1,12 +1,12 @@
 .box {
   margin: 0 auto;
-  padding: 30px;
   position: absolute;
   left: 50%;
   transform: translate(-50%, 10%);
 }
 
 .container {
+  position: relative;
   padding: 29px 0 20px 0;
   text-align: center;
   max-width: 400px;
@@ -126,13 +126,9 @@ input[type="checkbox"] {
   z-index: 5;
 }
 
-input:focus ~ label,
-input:active ~ label {
-  color: #9d9d9d;
-  transform: translate(-12%, -50%) scale(0.75);
-}
 
 label {
+  cursor: pointer;
   position: absolute;
   z-index: 5;
   top: 0;
@@ -198,11 +194,11 @@ label {
 
 .bg-bubbles {
   position: absolute;
-  bottom: 0;
+  bottom: 25%;
   width: 400px;
-  height: 1%;
   z-index: 1;
   padding-left: 0;
+  margin-left: -35px;
 }
 
 .bg-bubbles li {
@@ -249,16 +245,16 @@ label {
 
 .bg-bubbles li:nth-child(6) {
   left: 80%;
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   animation-delay: 3s;
   background-color: rgba(255, 255, 255, 0.2);
 }
 
 .bg-bubbles li:nth-child(7) {
   left: 32%;
-  width: 160px;
-  height: 160px;
+  width: 60px;
+  height: 60px;
   animation-delay: 7s;
 }
 
@@ -281,8 +277,8 @@ label {
 
 .bg-bubbles li:nth-child(10) {
   left: 90%;
-  width: 160px;
-  height: 160px;
+  width: 60px;
+  height: 60px;
   animation-delay: 11s;
 }
 
