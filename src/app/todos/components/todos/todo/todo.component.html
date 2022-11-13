@@ -11,7 +11,10 @@
       <b (dblclick)="toggleEditMode()">{{ todo.title }}</b>
     </ng-template>
 
-    <button (click)="removeTodoHandler()">-</button>
+    <button class="btn" (click)="removeTodoHandler()">
+      --
+      <!--      <img class="icon" src="assets/img/recycling-bag.png" />-->
+    </button>
   </div>
   <tl-tasks [todoId]="todo.id"></tl-tasks>
   <tl-todo-filters

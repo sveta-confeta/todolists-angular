@@ -291,14 +291,6 @@ label {
   }
 }
 
-@keyframes square {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-700px) rotate(600deg);
-  }
-}
 
 
 
