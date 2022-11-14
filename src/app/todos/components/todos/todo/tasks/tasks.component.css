@@ -1,6 +1,46 @@
-.input{
-  border:2px solid black;
+.wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 10px;
-  width: 100%;
-  box-sizing: border-box;
+
+
 }
+
+.input{
+  width: 100%;
+  appearance: none;
+  outline: 0;
+  border: 1px solid #50a3a2;
+  background-color: #50a3a2;
+  opacity:0.7 ;
+  height: 25px;
+  font-size: 15px;
+  padding: 7px 10px;
+  display: block;
+  text-align: left;
+  color: #101010;
+  font-weight: 300;
+  border-radius: 3px 0 0 3px;
+}
+.input::placeholder{
+  color: #101010;
+}
+.btn-plus{
+  cursor: pointer;
+  appearance: none;
+  outline: 0;
+  display: inline-block;
+  background-color: white;
+  border: 0;
+  color: #757575;
+  border-radius:0 3px 3px 0;
+  font-size: 13px;
+  transition-duration: 0.25s;
+  padding: 12px 10px;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+
+}
+

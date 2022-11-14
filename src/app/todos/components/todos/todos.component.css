@@ -44,11 +44,40 @@
 .todos-input{
   display: flex;
   align-items: center;
-  gap: 10px;
   justify-content: center;
-  margin-bottom: 20px;
   position: relative;
   z-index: 5;
+  margin-bottom: 40px;
+}
+
+.input {
+  appearance: none;
+  outline: 0;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 220px;
+  height: 25px;
+  font-size: 19px;
+  border-radius: 3px 0 0 3px;
+  padding: 10px 15px;
+  display: block;
+  text-align: left;
+  color: white;
+  font-weight: 300;
+}
+
+.btn-add{
+  border-left: none;
+  cursor: pointer;
+  outline: 0;
+  display: inline-block;
+  background-color: white;
+  border: 0;
+  color: #757575;
+  border-radius:0 3px 3px 0;
+  font-size: 20px;
+  padding: 12px;
+  font-weight: 600;
 }
 
 

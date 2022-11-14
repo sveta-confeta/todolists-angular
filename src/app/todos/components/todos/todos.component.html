@@ -4,8 +4,8 @@
     <button class="button" (click)="logoutHandler()">Logout</button>
   </div>
   <div class="todos-input">
-    <input type="text" placeholder="Add new todo" [(ngModel)]="todoTitle" />
-    <button (click)="addTodoHandler()">+</button>
+    <input class="input" type="text" placeholder="Add new todo" [(ngModel)]="todoTitle" />
+    <button class="btn-add" (click)="addTodoHandler()">add</button>
   </div>
   <div class="todos-box">
     <tl-todo
