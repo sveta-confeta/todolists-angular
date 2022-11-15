@@ -3,3 +3,7 @@
   border-top: 1px solid black
   }
 
+p{
+  margin-top: 0;
+  margin-bottom: 5px;
+}

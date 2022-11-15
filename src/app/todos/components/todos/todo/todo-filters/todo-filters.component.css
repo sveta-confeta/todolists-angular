@@ -1,8 +1,30 @@
 .box{
+  margin-top: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-self: flex-end;
 }
 
-.completed{
-  background-color: aqua;
+.btn.completed{
+  background-color: #50a3a2;
+  opacity: 0.8;
+}
+
+.btn{
+  cursor: pointer;
+  appearance: none;
+  outline: 0;
+  display: inline-block;
+  background-color: white;
+  border: 0;
+  color: #2f2f2f;
+  border-radius: 3px;
+  font-size: 13px;
+  transition-duration: 0.25s;
+  padding: 5px 10px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 80%);
+
 }
